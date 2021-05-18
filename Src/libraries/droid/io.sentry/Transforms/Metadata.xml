@@ -1,0 +1,32 @@
+﻿<metadata>
+	<!--Packages-->
+	<remove-node path="/api/package[@name='io.sentry.adapters']" />
+	<!-- Classes-->
+	<remove-node path="/api/package[@name='io.sentry.exception']/class[@name='ExceptionMechanismException']" />
+	<remove-node path="/api/package[@name='io.sentry.exception']/class[@name='InvalidSentryTraceHeaderException']" />
+	<remove-node path="/api/package[@name='io.sentry.exception']/class[@name='InvalidSentryTraceHeaderException']" />
+	<remove-node path="/api/package[@name='io.sentry.exception']/class[@name='SentryEnvelopeException']" />
+	<remove-node path="/api/package[@name='io.sentry']/class[@name='SentryEnvelopeHeaderAdapter']" />
+	<remove-node path="/api/package[@name='io.sentry']/class[@name='SentryEnvelopeItemHeaderAdapter']" />
+	<remove-node path="/api/package[@name='io.sentry']/class[@name='SessionAdapter']" />
+	<!--Fields-->
+	<remove-node path="/api/package[@name='io.sentry']/class[@name='Breadcrumb']/method[@name='clone' and count(parameter)=0]" />
+	<remove-node path="/api/package[@name='io.sentry']/class[@name='Hub']/method[@name='clone' and count(parameter)=0]" />
+	<remove-node path="/api/package[@name='io.sentry.protocol']/class[@name='App']/method[@name='clone' and count(parameter)=0]" />
+	<remove-node path="/api/package[@name='io.sentry.protocol']/class[@name='User']/method[@name='clone' and count(parameter)=0]" />
+	<remove-node path="/api/package[@name='io.sentry']/class[@name='HubAdapter']/method[@name='clone' and count(parameter)=0]" />
+	<remove-node path="/api/package[@name='io.sentry']/class[@name='NoOpHub']/method[@name='clone' and count(parameter)=0]" />
+	<remove-node path="/api/package[@name='io.sentry.protocol']/class[@name='Browser']/method[@name='clone' and count(parameter)=0]" />
+	<remove-node path="/api/package[@name='io.sentry.protocol']/class[@name='Contexts']/method[@name='clone' and count(parameter)=0]" />
+	<remove-node path="/api/package[@name='io.sentry.protocol']/class[@name='Device']/method[@name='clone' and count(parameter)=0]" />
+	<remove-node path="/api/package[@name='io.sentry.protocol']/class[@name='Gpu']/method[@name='clone' and count(parameter)=0]" />
+	<remove-node path="/api/package[@name='io.sentry.protocol']/class[@name='OperatingSystem']/method[@name='clone' and count(parameter)=0]" />
+	<remove-node path="/api/package[@name='io.sentry.protocol']/class[@name='Request']/method[@name='clone' and count(parameter)=0]" />
+	<remove-node path="/api/package[@name='io.sentry.protocol']/class[@name='SentryRuntime']/method[@name='clone' and count(parameter)=0]" />
+	<remove-node path="/api/package[@name='io.sentry']/class[@name='Scope']/method[@name='clone' and count(parameter)=0]" />
+	<remove-node path="/api/package[@name='io.sentry']/class[@name='Session']/method[@name='clone' and count(parameter)=0]" />
+	<remove-node path="/api/package[@name='io.sentry']/class[@name='SpanContext']/method[@name='clone' and count(parameter)=0]" />
+	<remove-node path="/api/package[@name='io.sentry']/class[@name='SentryTraceHeader']/field[@name='SENTRY_TRACE_HEADER']" />
+	<!--Interface-->
+	<remove-node path="/api/package[@name='io.sentry']/interface[@name='IHub']/method[@name='clone' and count(parameter)=0]" />
+</metadata>

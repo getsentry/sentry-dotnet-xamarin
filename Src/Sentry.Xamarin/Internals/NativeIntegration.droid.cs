@@ -1,5 +1,8 @@
 ﻿using Android.Runtime;
+using IO.Sentry.Android.Core;
+using Sentry.Extensions;
 using Sentry.Integrations;
+using Sentry.Internals;
 using Sentry.Protocol;
 using System;
 using System.Collections.Generic;
@@ -9,7 +12,6 @@ namespace Sentry.Xamarin.Internals
 {
     internal class NativeIntegration : ISdkIntegration
     {
-
         private SentryXamarinOptions _xamarinOptions;
         private IHub _hub;
 
@@ -27,6 +29,7 @@ namespace Sentry.Xamarin.Internals
                 _hub = hub;
                 Platform.ActivityStateChanged += Platform_ActivityStateChanged;
                 AndroidEnvironment.UnhandledExceptionRaiser += AndroidEnvironment_UnhandledExceptionRaiser;
+                JavaSdkInit(options);
             }
             catch (Exception ex)
             {
@@ -40,6 +43,22 @@ namespace Sentry.Xamarin.Internals
             if (_xamarinOptions.NativeIntegrationEnabled)
             {
                 Platform.ActivityStateChanged -= Platform_ActivityStateChanged;
+                IO.Sentry.Sentry.Close();
+                IO.Sentry.Android.Ndk.SentryNdk.Close();
+            }
+        }
+
+        private void JavaSdkInit(SentryOptions options)
+        {
+            try
+            {
+                SentryAndroid.Init(Android.App.Application.Context, 
+                    new Runnable<SentryAndroidOptions>((response) =>
+                        options.ApplyToSentryAndroidOptions(response)));
+            }
+            catch(Exception ex)
+            {
+                options.DiagnosticLogger?.Log(SentryLevel.Error, "Failed to load Native Sdk", ex);
             }
         }
 

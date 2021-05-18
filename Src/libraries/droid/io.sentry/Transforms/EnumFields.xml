@@ -1,0 +1,9 @@
+﻿<enum-field-mappings>
+<mapping jni-class="io.sentry.SentryLevel" clr-enum-type="IO.Sentry.Map.SentryLevel">
+	<field jni-name="DEBUG" clr-name="Debug" value="0" />
+	<field jni-name="INFO" clr-name="Info" value="1" />
+	<field jni-name="WARNING" clr-name="Warning" value="2" />
+	<field jni-name="ERROR" clr-name="Error" value="3" />
+	<field jni-name="FATAL" clr-name="Fatal" value="4" />
+</mapping>
+</enum-field-mappings>

@@ -3,7 +3,7 @@
 	    <!--Generate xml docs for all projects under 'src'-->
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 
-		<TargetFrameworks>netstandard2.0;monoandroid9.0;Xamarinios10;</TargetFrameworks>
+		<TargetFrameworks>netstandard2.0;monoandroid11.0;Xamarinios10;</TargetFrameworks>
 		<TargetFrameworks Condition="'$(OS)' == 'Windows_NT'">$(TargetFrameworks);uap10.0.16299;</TargetFrameworks>
 		<NoWarn Condition="$(TargetFramework) == 'netstandard2.0'">$(NoWarn);RS0017</NoWarn>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -34,13 +34,15 @@
 		<Compile Remove="Internals\*.ios.cs" />
 		<Compile Remove="Internals\*.droid.cs" />
 		<Compile Remove="Internals\*.uwp.cs" />
+		<Compile Remove="Extensions\*.droid.cs" />
 
 		<None Include="Internals\*.netstandard.cs" />
 		<None Include="Internals\*.ios.cs" />
 		<None Include="Internals\*.droid.cs" />
 		<None Include="Internals\*.uwp.cs" />
-	</ItemGroup>
-	
+		<None Include="Extensions\*.droid.cs" />
+	</ItemGroup>	
+		
 	<ItemGroup>
 		<PackageReference Include="Xamarin.Essentials" Version="1.4.0" />
 	</ItemGroup>
@@ -51,6 +53,10 @@
 
 	<ItemGroup Condition=" $(TargetFramework.StartsWith('monoandroid')) ">
 		<Compile Include="Internals\*.droid.cs" />
+		<Compile Include="Extensions\*.droid.cs" />
+		<ProjectReference Include="..\libraries\droid\io.sentry\io.sentry.csproj" />
+		<ProjectReference Include="..\libraries\droid\io.sentry.sentry-android\io.sentry.android.core.csproj" />
+		<ProjectReference Include="..\libraries\droid\io.sentry.android.ndk\io.sentry.android.ndk.csproj" />
 	</ItemGroup>
 
 	<ItemGroup Condition="$(TargetFramework.StartsWith('uap'))">
