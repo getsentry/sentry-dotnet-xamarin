@@ -1,4 +1,5 @@
 ﻿using Sentry;
+using Sentry.Infrastructure;
 using System;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
@@ -16,9 +17,9 @@ namespace Sample.Xamarin.uwp
             {
                 options.Dsn = "https://5a193123a9b841bc8d8e42531e7242a1@o447951.ingest.sentry.io/5560112";
                 options.AddXamarinFormsIntegration();
-#if DEBUG
                 options.Debug = true;
-#endif
+                options.DiagnosticLogger = new TraceDiagnosticLogger(SentryLevel.Debug);
+                options.AttachScreenshots = true;
             });
             Frame rootFrame = Window.Current.Content as Frame;
 

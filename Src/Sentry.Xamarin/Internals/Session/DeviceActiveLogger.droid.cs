@@ -9,6 +9,13 @@
         /// </summary>
         private bool IsPaused;
 
+        /// <summary>
+        /// Informs if the device is on background.
+        /// </summary>
+        /// <returns>True if the app is on background, otherwise false</returns>
+        public bool IsBackground() => IsPaused;
+
+
         /// <inheritdoc cref="IHub.PauseSession"/>
         public void StatePaused()
         {

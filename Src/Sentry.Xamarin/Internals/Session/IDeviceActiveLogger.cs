@@ -5,5 +5,7 @@
         void StatePaused();
 
         void StateResumed();
+
+        bool IsBackground();
     }
 }

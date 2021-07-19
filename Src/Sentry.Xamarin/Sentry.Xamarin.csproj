@@ -30,37 +30,37 @@
 	</PropertyGroup>	
 	
 	<ItemGroup>	
-		<Compile Remove="Internals\**\*.netstandard.cs" />
-		<Compile Remove="Internals\**\*.ios.cs" />
-		<Compile Remove="Internals\**\*.droid.cs" />
-		<Compile Remove="Internals\**\*.uwp.cs" />
+		<Compile Remove="Internals\**\*.netstandard*.cs" />
+		<Compile Remove="Internals\**\*.ios*.cs" />
+		<Compile Remove="Internals\**\*.droid*.cs" />
+		<Compile Remove="Internals\**\*.uwp*.cs" />
 
-		<None Include="Internals\**\*.netstandard.cs" />
-		<None Include="Internals\**\*.ios.cs" />
-		<None Include="Internals\**\*.droid.cs" />
-		<None Include="Internals\**\*.uwp.cs" />
-	</ItemGroup>
-	
+		<None Include="Internals\**\*.netstandard*.cs" />
+		<None Include="Internals\**\*.ios*.cs" />
+		<None Include="Internals\**\*.droid*.cs" />
+		<None Include="Internals\**\*.uwp*.cs" />
+	</ItemGroup>	
+
 	<ItemGroup>
-		<PackageReference Include="Xamarin.Essentials" Version="1.4.0" />
+		<PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
 	</ItemGroup>
 
 	<ItemGroup Condition=" $(TargetFramework.StartsWith('Xamarinios')) ">
-		<Compile Include="Internals\**\*.ios.cs" />
+		<Compile Include="Internals\**\*.ios*.cs" />
 		<PackageReference Include="System.Memory" Version="4.5.4" />
 		<PackageReference Include="System.Buffers" Version="4.5.1" />
 	</ItemGroup>
 
 	<ItemGroup Condition=" $(TargetFramework.StartsWith('monoandroid')) ">
-		<Compile Include="Internals\**\*.droid.cs" />
+		<Compile Include="Internals\**\*.droid*.cs" />
 	</ItemGroup>
 
 	<ItemGroup Condition="$(TargetFramework.StartsWith('uap'))">
-		<Compile Include="Internals\**\*.uwp.cs" />
+		<Compile Include="Internals\**\*.uwp*.cs" />
 		<PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.2.9" />
 	</ItemGroup>
 
 	<ItemGroup Condition=" $(TargetFramework.StartsWith('netstandard')) ">
-		<Compile Include="Internals\**\*.netstandard.cs" />
+		<Compile Include="Internals\**\*.netstandard*.cs" />
 	</ItemGroup>
 </Project>

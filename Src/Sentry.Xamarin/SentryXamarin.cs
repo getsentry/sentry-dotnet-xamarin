@@ -37,6 +37,7 @@ namespace Sentry
             options.RegisterNativeActivityStatus();
             options.RegisterNativeIntegrations();
             options.RegisterXamarinEventProcessors();
+            options.RegisterScreenshotEventProcessor();
             options.RegisterXamarinInAppExclude();
             options.ProtocolPackageName ??= ProtocolPackageName;
             SentrySdk.Init(options);

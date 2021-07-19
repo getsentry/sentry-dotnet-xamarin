@@ -2,6 +2,7 @@
 using Xamarin.Essentials;
 using Sentry.Xamarin.Internals;
 using Sentry.Internals.Session;
+using Sentry.Internals.Device.Screenshot;
 
 namespace Sentry
 {
@@ -59,6 +60,16 @@ namespace Sentry
             options.AddEventProcessor(new NativeEventProcessor(options));
 #else
             options.DiagnosticLogger?.Log(SentryLevel.Debug, "No NativeEventProcessor found for the given target.");
+#endif
+        }
+
+        internal static void RegisterScreenshotEventProcessor(this SentryXamarinOptions options)
+        {
+#if NATIVE_PROCESSOR
+            if (options.AttachScreenshots)
+            {
+                options.AddEventProcessor(new ScreenshotEventProcessor(options));
+            }
 #endif
         }
 
